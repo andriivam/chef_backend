@@ -6,6 +6,6 @@ export const pool = new Pool({
     password :"homechef",
     host : "localhost",
     port : 5432,
-    database: "homecheftrial"
+    database: process.env.DATABASE
 
 })
