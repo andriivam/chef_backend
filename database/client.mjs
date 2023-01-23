@@ -1,6 +1,7 @@
-import { Client } from "pg"
+import pkg from 'pg';
+const { Pool } = pkg;
 
-const client = new Client({
+export const pool = new Pool({
     user : "homecheftrial_admin",
     password :"homechef",
     host : "localhost",
@@ -8,4 +9,3 @@ const client = new Client({
     database: "homecheftrial"
 
 })
-export default client
