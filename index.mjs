@@ -1,19 +1,4 @@
-<<<<<<< HEAD
-import express from 'express'
-import { menuDetails } from './controllers/menuDetails.mjs'
-import { dbConnect } from './database/connectDb.mjs'
-
-const app = express()
-app.use(express.json())
-dbConnect()
-
-app.get('/', (req, res) => res.send( "db connected" ))
-app.post('/menu',menuDetails)
-
-const PORT = 3001
-app.listen(PORT, () => console.log(`Server started: http://localhost:${PORT}/`))
-=======
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookie from 'cookie-parser';
@@ -44,4 +29,3 @@ app.get('/chef_table', getAllChefTables);
 app.post('/menu_details', menuDetails);
 
 app.listen(PORT, () => console.log(`Server started: localhost`))
->>>>>>> 44269e19d75a03842b7fd7534b419a3195350ab5
