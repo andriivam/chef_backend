@@ -5,7 +5,7 @@ export const chefInfoById = async(req, res) => {
     console.log(id)
     //do the params here
     try {
-        const eachChef = await pool.query(
+        const eachChef = await client.query(
         `SELECT * FROM "chefTable" 
         INNER JOIN "menuDetails"
         ON "chefTable".id = "menuDetails"."chefTable_id"
