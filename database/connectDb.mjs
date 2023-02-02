@@ -1,7 +1,7 @@
-import { pool } from "./client.mjs";
+import { client } from "./client.mjs";
 
 export const dbConnect = () => {
-    pool.connect((err) => {
+    client.connect((err) => {
       if (err) {
         console.error("connection error", err.stack);
       } else {

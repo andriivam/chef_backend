@@ -1,7 +1,7 @@
 import pkg from 'pg';
-const { Pool } = pkg;
+const { Client } = pkg;
 
-export const pool = new Pool({
+export const client = new Client({
     user : "homecheftrial_admin",
     password :"homechef",
     host : "localhost",
