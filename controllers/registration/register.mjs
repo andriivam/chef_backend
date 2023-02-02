@@ -9,14 +9,14 @@ const register = async (req, res) => {
         //Checking if user already exists
         const arr = data.rows;
         if (arr.length != 0) {
-            return res.status(400).json({
+            return res.status(400).send({
                 error: "Email already there, No need to register again.",
             });
         }
         else {
             bcrypt.hash(password, 10, (err, hash) => {
                 if (err)
-                    res.status(err).json({
+                    res.status(500).send({
                         error: "Server error",
                     });
                 const user = {
@@ -48,7 +48,7 @@ console.log(user)
                             flag = 0;
                             //If user is not inserted is not inserted to database assigning flag as 0/false.
                             console.error(err);
-                            return res.send({
+                            return res.status(500).send({
                                 error: "Database error"
                             })
                         }

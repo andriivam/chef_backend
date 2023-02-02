@@ -12,6 +12,7 @@ import registerChef from './controllers/registration/registerChef.mjs';
 import logUser from './controllers/registration/login.mjs';
 import forgotPassword from "./controllers/registration/forgotPassword.mjs";
 import chefInfo from './controllers/chefInfo.mjs';
+import auth from './middleware/verifyToken.mjs'
 
 
 
@@ -43,7 +44,7 @@ app.post('/home/LoginPage/userForm', register)
 // Chef registration
 app.post('/home/LoginPage/chefForm', registerChef)
 //Login
-app.post('/home/LoginPage', logUser)
+app.post('/home/Loginpage', logUser, auth)
 //Forgot password
 app.post('/home/LoginPage/ForgotPassword', forgotPassword)
 

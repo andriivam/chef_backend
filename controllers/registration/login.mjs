@@ -10,15 +10,13 @@ dotenv.config();
 const logUser = async (request, response) => {
   const { email, password } = request.body;
   // Write a SQL query to retrieve the user with the given email address
-
+console.log(request.body, 'body')
   // Execute the SQL query
-  const result = await client.query(`SELECT * FROM "Login" WHERE email = $1`, [
-    email,
-  ]);
+  const result = await client.query(`SELECT * FROM "Login" WHERE email = $1`, [email]);
 
   // If the user does not exist, return an error
   if (result.rows.length === 0) {
-    return response.json({ error: "User not found" });
+    return response.status(404).send({ error: "User not found" });
   }
   // If the user exists, get the user data
 
@@ -30,13 +28,12 @@ const logUser = async (request, response) => {
 
   // If the password is invalid, return an error
   if (!passwordIsValid) {
-    return response.send({ error: "Invalid password" });
+    return response.status(403).send({ error: "Invalid password" });
   }
 
   // If the password is valid, generate a JWT that encodes the user's information
   const token = jwt.sign({ user }, process.env.JWT_SECRET, {
-    algorithm: "HS512",
-    expiresIn: "1h",
+    algorithm: "HS512"
   });
 
   console.log(token)
@@ -47,7 +44,7 @@ const logUser = async (request, response) => {
       secure: process.env.NODE_ENV === "production",
     })
     .status(200)
-    .send(`Logged in successfully with email ${email}`);
+    .send({msg: `Logged in successfully with email ${email}`});
 };
 
 
