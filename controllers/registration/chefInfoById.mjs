@@ -1,4 +1,4 @@
-import { client } from "../../database/client.mjs";
+import client from "../../database/client.mjs";
 
 export const chefInfoById = async(req, res) => {
     const id = (req.params.id)

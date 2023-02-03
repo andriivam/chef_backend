@@ -1,4 +1,4 @@
-import { client } from "./client.mjs";
+import client from "./client.mjs";
 
 export const dbConnect = () => {
     client.connect((err) => {

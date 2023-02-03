@@ -1,7 +1,7 @@
 import pkg from 'pg';
 const { Client } = pkg;
 
-export const client = new Client({
+const client = new Client({
     user : "homecheftrial_admin",
     password :"homechef",
     host : "localhost",
@@ -9,3 +9,5 @@ export const client = new Client({
     database: process.env.DATABASE
 
 })
+
+export default client;
