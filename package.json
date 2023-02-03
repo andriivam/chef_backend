@@ -13,8 +13,7 @@
   },
   "scripts": {
     "dev": "nodemon index.mjs",
-    "start": "node index.mjs",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    "start": "node index.mjs"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
