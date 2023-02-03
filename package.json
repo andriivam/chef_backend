@@ -9,14 +9,12 @@
     "hash": "^0.2.1",
     "jsonwebtoken": "^9.0.0",
     "pg": "^8.9.0",
-    "postgresql-client": "^2.5.2"
+    "postgresql-client": "^2.5.2",
+    "railway": "^2.0.17"
   },
   "scripts": {
     "dev": "nodemon index.mjs",
-
     "start": "node index.mjs"
-
-
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
