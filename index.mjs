@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookie from 'cookie-parser';
-import dbConnect from './database/dbConnect.mjs';
+// import dbConnect from './database/dbConnect.mjs';
 import cors from 'cors';
 import {cuisineType, getAllCuisines, getOneCuisine} from './controllers/cuisineType.mjs';
 import {chefTable, getAllChefTables} from './controllers/chefTable.mjs';
@@ -17,14 +17,14 @@ import { cuisineTypeName } from './controllers/cuisineTypeName.mjs';
 
 
 dotenv.config();
-dbConnect();
+// dbConnect();
 const app = express();
 const PORT = process.env.PORT;
 app.use(bodyParser.json());
 app.use(cookie());
 app.use(cors({origin: 'http://localhost:3000'}));
 
-
+console.log('hello world')
 //Cuisine Types
 app.post('/home', cuisineType);
 app.get('/home', getAllCuisines);
@@ -50,4 +50,5 @@ app.post('/home/LoginPage', logUser)
 //Forgot password
 app.post('/home/LoginPage/ForgotPassword', forgotPassword)
 
-app.listen(PORT, () => console.log(`Server started: localhost ${PORT}`))
+
+app.listen(process.env.PORT || 3000, () => console.log(`Server started: localhost ${PORT}`))
