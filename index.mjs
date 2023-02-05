@@ -12,6 +12,7 @@ import registerChef from './controllers/registration/registerChef.mjs';
 import logUser from './controllers/registration/login.mjs';
 import forgotPassword from "./controllers/registration/forgotPassword.mjs";
 import chefInfo from './controllers/chefInfo.mjs';
+import { cuisineTypeName } from './controllers/cuisineTypeName.mjs';
 
 
 
@@ -37,6 +38,8 @@ app.post('/home', cuisineType);
 app.get('/home', getAllCuisines);
 app.get('/home/:id', getOneCuisine);
 app.get('/:id/chefProfileFull', chefInfo)
+app.get('/home/:id/cuisineType',cuisineTypeName )
+
 // Chef table info
 app.post('/home/ChefList', chefTable);
 app.get('/home/:id/ChefList', getAllChefTables);
