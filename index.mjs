@@ -21,14 +21,8 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(bodyParser.json());
 app.use(cookie());
-app.use(cors({origin: 'http://localhost:3001'}));
+app.use(cors({origin: 'https://homechefbackend.herokuapp.com'}));
 
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("build"));
-//     app.get("*", (req, res) => {
-//       res.sendFile(path.resolve(__dirname,  "build", "index.html"));
-//     });
-//   }
 
 
 console.log('hello world')
