@@ -24,7 +24,7 @@ export const getMenuDetails = async (req, res) => {
         res.status(200).json(result.rows)
     }
     catch (error) {
-        console.log(error);
+        console.log(error.message);
         return res.status(500).send({ error: "Error: something went wrong" })
     }
 }
