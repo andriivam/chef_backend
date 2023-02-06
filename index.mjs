@@ -13,28 +13,18 @@ import logUser from './controllers/registration/login.mjs';
 import forgotPassword from "./controllers/registration/forgotPassword.mjs";
 import chefInfo from './controllers/chefInfo.mjs';
 
-
-
 dotenv.config();
 dbConnect(); 
 const app = express();
 const PORT = process.env.PORT;
 app.use(bodyParser.json());
 app.use(cookie());
-app.use(cors({origin: 'http://localhost:3001'}));
-
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("build"));
-//     app.get("*", (req, res) => {
-//       res.sendFile(path.resolve(__dirname,  "build", "index.html"));
-//     });
-//   }
+app.use(cors({origin: 'https://homechefbecode.netlify.app'}));
 
 
-console.log('hello world')
 //Cuisine Types
-app.post('/home', cuisineType);
 app.get('/home', getAllCuisines);
+app.post('/home', cuisineType);
 app.get('/home/:id', getOneCuisine);
 app.get('/:id/chefProfileFull', chefInfo)
 // Chef table info

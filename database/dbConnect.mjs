@@ -5,7 +5,7 @@ const dbConnect = () => {
         if (err) {
             console.error("connection error", err.stack);
         } else {
-            console.log("connected from DB");
+            console.log("connected to the DB");
         }
     });
 };

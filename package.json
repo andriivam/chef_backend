@@ -11,9 +11,14 @@
     "pg": "^8.9.0",
     "postgresql-client": "^2.5.2"
   },
+  "engines": {
+    "node": "19.2.0",
+    "npm": "8.19.3"
+  },
   "scripts": {
-    "dev": "nodemon index.mjs",
-    "start": "node index.mjs"
+    "start": "node index.mjs",
+    "heroku-postbuild": "npm install && npm run build",
+    "dev": "nodemon index.mjs"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
